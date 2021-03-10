@@ -14,14 +14,14 @@ Department.init(
       type: DataTypes.STRING,
     },
   },
-  
+
   {
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'role',
+    modelName: 'ddepartment',
   }
 );
 
-module.exports = Role;
+module.exports = department;
