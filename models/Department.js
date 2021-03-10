@@ -20,7 +20,7 @@ Department.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'ddepartment',
+    modelName: 'department',
   }
 );
 

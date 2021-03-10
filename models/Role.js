@@ -18,6 +18,7 @@ Role.init(
     },
     dept_id: {
       type: DataTypes.INTEGER,
+      foreignkey: true,
     },
   },
   {
