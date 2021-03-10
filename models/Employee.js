@@ -5,28 +5,22 @@ class Employee extends Model {}
 
 Employee.init(
   {
-    book_id: {
+    employee_id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
     },
-    title: {
+    first_name: {
       type: DataTypes.STRING,
     },
-    author: {
+    last_name: {
       type: DataTypes.STRING,
     },
-    isbn: {
-      type: DataTypes.STRING,
-    },
-    pages: {
+    role_id: {
       type: DataTypes.INTEGER,
     },
-    edition: {
+    manager_id: {
       type: DataTypes.INTEGER,
-    },
-    is_paperback: {
-      type: DataTypes.BOOLEAN,
     },
   },
   {
