@@ -89,25 +89,18 @@ console.log("in start");
             // };
 
     // });
-    console.log(initial);
     initial();
+    return false;
 };
-console.log(sequelize);
 try {
 if (sequelize.connected) {
-    console.log("in try");
   start();
 }
 } catch (error)
 {
     console.error('Unable to connect to the database:', error);
 }
-// try {
-//     await sequelize.authenticate();
-//     console.log('Connection has been established successfully.');
-//   } catch (error) {
-//     console.error('Unable to connect to the database:', error);
-//   }
+
 
 // turn on routes
 

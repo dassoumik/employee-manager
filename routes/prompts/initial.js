@@ -1,4 +1,5 @@
 const inquirer = require('inquirer');
+const allDepartment = require('./allDepartment');
 const allEmployee = require('./allEmployee');
 
 const initial = () => {
@@ -22,56 +23,62 @@ const initial = () => {
         .then(async (answer) => {
             console.log(answer.choice);
             // return answer.choice;
-        //     // let status;
-        //     // const connected = new Promise((resolve, reject) => {
-        //     //     if (connection()) 
-        //     //     return resolve();
-        //     //     else
-        //     //     return reject();});
-                
-            
+            //     // let status;
+            //     // const connected = new Promise((resolve, reject) => {
+            //     //     if (connection()) 
+            //     //     return resolve();
+            //     //     else
+            //     //     return reject();});
+
+
             switch (answer.choice) {
-        //     //     case ("Add Employees"):
-        //     //         status = addEmployee();
-        //     //         break;
-        //     //     case ("Add Departments"):
-        //     //         status = addDepartment();
-        //     //         break;
-        //     //     case ("Add Roles"):
-        //     //         status = addRole();
-        //     //         break;
+                //     //     case ("Add Employees"):
+                //     //         status = addEmployee();
+                //     //         break;
+                //     //     case ("Add Departments"):
+                //     //         status = addDepartment();
+                //     //         break;
+                //     //     case ("Add Roles"):
+                //     //         status = addRole();
+                //     //         break;
                 case ("View All Employees"):
-                    status = allEmployee();
+                    try {
+                        allEmployee();
+                    } catch {
+                        (err) => console.error(err)
+                    }
+                    initial();
                     break;
-        //     //     case ("View All Departments"):
-        //     //       status = async () => { await dept.viewAllDepartment;
-        //     //             console.log("back from viewALLdept");
-        //     //             // })    
-        //     //             // .then(() {
-        //     //             }   
-        //     //             await status(); 
-        //     //             formatOutput(status);
-        //     //             initialOptions();
-        //     //             // })
-        //     //             // .catch(err) (console.error(err));
-        //     //         break;
-        //     //     case ("View All Roles"):
-        //     //         status = viewAllRole();
-        //     //         break;
-        //     //     case ("Update Employee Role"):
-        //     //         status = updateEmpRole();
-        //     //         break;
-        //     //     case ("Exit"):
-        //     //         mDB.end();
-        //     //         status = true;
-        //     //         break;
-        //     //     default:
-        //     //         status = false;
-        //     //         break;
-        //     // }
-        //     // return status;
-            }    
-    })
+                            case ("View All Departments"):
+                            //   status = async () => { await dept.viewAllDepartment;
+                            //         console.log("back from viewALLdept");
+                            //         // })    
+                            //         // .then(() {
+                            //         }   
+                            //         await status();
+                                    allDepartment(); 
+                                    // formatOutput(status);
+                                    initial();
+                                    // })
+                                    // .catch(err) (console.error(err));
+                                break;
+                    //     //     case ("View All Roles"):
+                    //     //         status = viewAllRole();
+                    //     //         break;
+                    //     //     case ("Update Employee Role"):
+                    //     //         status = updateEmpRole();
+                    //     //         break;
+                    //     //     case ("Exit"):
+                    //     //         mDB.end();
+                    //     //         status = true;
+                    //     //         break;
+                    //     //     default:
+                    //     //         status = false;
+                    //     //         break;
+                    //     // }
+                    //     // return status;
+            }
+        })
         .catch((err) => console.error(err));
-        };
+};
 module.exports = initial;
