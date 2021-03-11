@@ -1,7 +1,11 @@
 const cTable = require('console.table');
 
-function format(resultSet) {
-    console.table(resultSet);
+const format = (dbFetchData) => {
+    formatDisplay = [];
+    for(const item of dbFetchData){
+        formatDisplay.push(item.dataValues);
+    }
+    console.table(formatDisplay);
     return true;
 }
 
