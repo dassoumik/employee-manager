@@ -1,15 +1,15 @@
 const initial = require('./initial');
 const format = require('./format');
 const inquirer = require('inquirer');
-const department = require('../../models/Department');
+const role = require('../../models/Role');
 
-const allDepartment = async () => {
-    department.findAll().then((departmentData) => {
-         format(departmentData);
+const allRole = async () => {
+    role.findAll().then((RoleData) => {
+         format(RoleData);
         //  initial();
          return true;
     })
     .catch((err) => console.error(err));
 }
 
-module.exports = allDepartment;
+module.exports = allRole;

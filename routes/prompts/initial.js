@@ -1,6 +1,7 @@
 const inquirer = require('inquirer');
 const allDepartment = require('./allDepartment');
 const allEmployee = require('./allEmployee');
+const allRole = require('./allRole');
 
 const initial = () => {
 
@@ -62,9 +63,10 @@ const initial = () => {
                                     // })
                                     // .catch(err) (console.error(err));
                                 break;
-                    //     //     case ("View All Roles"):
-                    //     //         status = viewAllRole();
-                    //     //         break;
+                            case ("View All Roles"):
+                                allRole();
+                                initial();
+                                break;
                     //     //     case ("Update Employee Role"):
                     //     //         status = updateEmpRole();
                     //     //         break;
