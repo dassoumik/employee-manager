@@ -2,6 +2,9 @@ const inquirer = require('inquirer');
 const allDepartment = require('./allDepartment');
 const allEmployee = require('./allEmployee');
 const allRole = require('./allRole');
+const addEmployee = require('./addEmployee');
+
+let status;
 
 const initial = () => {
 
@@ -33,15 +36,21 @@ const initial = () => {
 
 
             switch (answer.choice) {
-                //     //     case ("Add Employees"):
-                //     //         status = addEmployee();
-                //     //         break;
-                //     //     case ("Add Departments"):
-                //     //         status = addDepartment();
-                //     //         break;
-                //     //     case ("Add Roles"):
-                //     //         status = addRole();
-                //     //         break;
+                case ("Add Employees"):
+                    try {
+                        status = addEmployee();
+                        if (status)
+                        initial();
+                    } catch {
+                        (err) => console.error(err);
+                    }
+                    break;
+                    //     //     case ("Add Departments"):
+                    //     //         status = addDepartment();
+                    //     //         break;
+                    //     //     case ("Add Roles"):
+                    //     //         status = addRole();
+                    //     //         break;
                 case ("View All Employees"):
                     try {
                         allEmployee();
@@ -50,23 +59,23 @@ const initial = () => {
                     }
                     initial();
                     break;
-                            case ("View All Departments"):
-                            //   status = async () => { await dept.viewAllDepartment;
-                            //         console.log("back from viewALLdept");
-                            //         // })    
-                            //         // .then(() {
-                            //         }   
-                            //         await status();
-                                    allDepartment(); 
-                                    // formatOutput(status);
-                                    initial();
-                                    // })
-                                    // .catch(err) (console.error(err));
-                                break;
-                            case ("View All Roles"):
-                                allRole();
-                                initial();
-                                break;
+                case ("View All Departments"):
+                    //   status = async () => { await dept.viewAllDepartment;
+                    //         console.log("back from viewALLdept");
+                    //         // })    
+                    //         // .then(() {
+                    //         }   
+                    //         await status();
+                    allDepartment();
+                    // formatOutput(status);
+                    initial();
+                    // })
+                    // .catch(err) (console.error(err));
+                    break;
+                case ("View All Roles"):
+                    allRole();
+                    initial();
+                    break;
                     //     //     case ("Update Employee Role"):
                     //     //         status = updateEmpRole();
                     //     //         break;
