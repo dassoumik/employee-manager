@@ -1,5 +1,5 @@
 const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+const { sequelize } = require('../config/connection');
 
 class Employee extends Model {}
 
@@ -24,12 +24,15 @@ Employee.init(
     },
   },
   {
-    sequelize,
+    sequelize: sequelize,
     timestamps: false,
     freezeTableName: true,
+    // charset: 'utf8',
     underscored: true,
     modelName: 'employee',
   }
-);
+  )
+  
+  console.log("in emp init");
 
 module.exports = Employee;
