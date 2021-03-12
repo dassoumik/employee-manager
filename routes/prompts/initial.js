@@ -6,6 +6,7 @@ const addEmployee = require('./addEmployee');
 const addDepartment = require('./addDepartment');
 const addRole = require('./addRole');
 const updateEmpRole = require('./updateEmpRole');
+const { sequelize } = require('../../config/connection');
 
 
 
@@ -75,14 +76,14 @@ function initial() {
                         const result = await allDepartment();
                         initial();
                     };
-                    status();                    
+                    status();
                     break;
                 case ("View All Roles"):
                     status = async () => {
                         const result = await allRole();
                         initial();
                     };
-                    status(); 
+                    status();
                     break;
                 case ("Update Employee Role"):
                     status = async () => {
@@ -91,15 +92,13 @@ function initial() {
                     };
                     status();
                     break;
-                    //     //     case ("Exit"):
-                    //     //         mDB.end();
-                    //     //         status = true;
-                    //     //         break;
-                    //     //     default:
-                    //     //         status = false;
-                    //     //         break;
-                    //     // }
-                    //     // return status;
+                case ("Exit"):
+                    status = async () => await sequelize.close();
+                    status();
+                    break;
+                default:
+                    status = false;
+                    break;
             }
         })
         .catch((err) => console.error(err));
