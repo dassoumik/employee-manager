@@ -1,7 +1,5 @@
 const inquirer = require('inquirer');
-// const {sequelize} = require('../../config/connection');
 const employee = require('../../models/Employee');
-const format = require('./format');
 
 const addEmployee = () => {
     return new Promise(resolve => {

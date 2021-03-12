@@ -4,6 +4,8 @@ const allEmployee = require('./allEmployee');
 const allRole = require('./allRole');
 const addEmployee = require('./addEmployee');
 const addDepartment = require('./addDepartment');
+const addRole = require('./addRole');
+
 
 
 let status;
@@ -48,6 +50,13 @@ function initial() {
                 case ("Add Departments"):
                     status = async () => {
                         const result = await addDepartment();
+                        initial();
+                    };
+                    status();
+                    break;
+                case ("Add Roles"):
+                    status = async () => {
+                        const result = await addRole();
                         initial();
                     };
                     status();

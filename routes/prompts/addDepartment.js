@@ -1,9 +1,5 @@
-const initial = require('./initial');
-const callInitial = require('./callInitial');
 const inquirer = require('inquirer');
-// const {sequelize} = require('../../config/connection');
 const department = require('../../models/Department');
-console.log(typeof(initial), "initial");
 
 const addDepartment = () => {
     return new Promise(resolve => {
