@@ -7,6 +7,7 @@ Employee.init(
   {
     employee_id: {
       type: DataTypes.INTEGER,
+      allowNull: false,
       primaryKey: true,
       autoIncrement: true,
     },
@@ -27,7 +28,6 @@ Employee.init(
     sequelize: sequelize,
     timestamps: false,
     freezeTableName: true,
-    // charset: 'utf8',
     underscored: true,
     modelName: 'employee',
   }

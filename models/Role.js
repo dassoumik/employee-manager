@@ -8,6 +8,7 @@ Role.init(
     role_id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
+      allowNull: false,
       autoIncrement: true,
     },
     title: {

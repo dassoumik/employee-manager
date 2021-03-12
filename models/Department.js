@@ -8,6 +8,7 @@ Department.init(
     dept_id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
+      allowNull: false,
       autoIncrement: true,
     },
     dept_name: {
