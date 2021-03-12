@@ -1,10 +1,11 @@
 // const express = require('express');
 // const routes = require('./routes');
-const sequelize = require('./config/connection');
+const {sequelize, connected} = require('./config/connection');
 const initial = require('./routes/prompts/initial');
+
 // const { init } = require('./models/Employee');
-const newSequelize = sequelize.sequelize;
-const inquirer = require('inquirer');
+// const newSequelize = sequelize.sequelize;
+// const inquirer = require('inquirer');
 // const app = express();
 // app.use(express.json());
 // app.use(express.urlencoded({ extended: true }));
@@ -12,7 +13,6 @@ const inquirer = require('inquirer');
 // const PORT = process.env.PORT || 3001;
 // const connection = sequelize.sync({ force: false }).then(() => {});
 function start() {
-console.log("in start");
 // turn on connection to db and server
 // sequelize.sync({ force: false }).then(() => {
     //   app.listen(PORT, () => console.log('Now listening'));
@@ -93,7 +93,7 @@ console.log("in start");
     return false;
 };
 try {
-if (sequelize.connected) {
+if (connected) {
   start();
 }
 } catch (error)

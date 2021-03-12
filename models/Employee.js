@@ -32,7 +32,5 @@ Employee.init(
     modelName: 'employee',
   }
   )
-  
-  console.log("in emp init");
 
 module.exports = Employee;

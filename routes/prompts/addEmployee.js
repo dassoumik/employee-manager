@@ -1,9 +1,10 @@
 const inquirer = require('inquirer');
-const {sequelize} = require('../../config/connection');
+// const {sequelize} = require('../../config/connection');
 const employee = require('../../models/Employee');
 const format = require('./format');
 
 const addEmployee = () => {
+    return new Promise(resolve => {
     inquirer
         .prompt([{
                 name: 'first_name',
@@ -39,13 +40,14 @@ const addEmployee = () => {
             
                 .then((employeeCreatedData) => {
                 console.log("Employee Added");
-                return true;
+                resolve(true);
                 })
                 .catch((err) => console.error(err));
                 return true;
             })
     
         .catch((err) => console.error(err))
+    });
 };
 
 module.exports = addEmployee;
