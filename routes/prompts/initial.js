@@ -6,7 +6,11 @@ const addEmployee = require('./addEmployee');
 const addDepartment = require('./addDepartment');
 const addRole = require('./addRole');
 const updateEmpRole = require('./updateEmpRole');
-const { sequelize } = require('../../config/connection');
+const viewByManager = require('./viewByManager');
+
+const {
+    sequelize
+} = require('../../config/connection');
 
 
 
@@ -20,44 +24,36 @@ function initial() {
             name: 'choice',
             type: 'rawlist',
             choices: [
-                "Add Employees",
-                "Add Departments",
-                "Add Roles",
+                "Add Employee",
+                "Add Department",
+                "Add Role",
                 "View All Employees",
                 "View All Departments",
                 "View All Roles",
                 "Update Employee Role",
+                "View Employees by Manager",
                 "Exit"
             ],
             message: 'What would you like to do?',
         }, ])
         .then(async (answer) => {
             console.log(answer.choice);
-            // return answer.choice;
-            //     // let status;
-            //     // const connected = new Promise((resolve, reject) => {
-            //     //     if (connection()) 
-            //     //     return resolve();
-            //     //     else
-            //     //     return reject();});
-
-
             switch (answer.choice) {
-                case ("Add Employees"):
+                case ("Add Employee"):
                     status = async () => {
                         const reuslt = await addEmployee();
                         initial();
                     }
                     status();
                     break;
-                case ("Add Departments"):
+                case ("Add Department"):
                     status = async () => {
                         const result = await addDepartment();
                         initial();
                     };
                     status();
                     break;
-                case ("Add Roles"):
+                case ("Add Role"):
                     status = async () => {
                         const result = await addRole();
                         initial();
@@ -88,6 +84,13 @@ function initial() {
                 case ("Update Employee Role"):
                     status = async () => {
                         const result = await updateEmpRole();
+                        initial();
+                    };
+                    status();
+                    break;
+                case ("View Employees by Manager"):
+                    status = async () => {
+                        const result = await viewByManager();
                         initial();
                     };
                     status();
