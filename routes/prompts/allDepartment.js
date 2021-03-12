@@ -4,12 +4,13 @@ const inquirer = require('inquirer');
 const department = require('../../models/Department');
 
 const allDepartment = async () => {
-    department.findAll().then((departmentData) => {
-         format(departmentData);
-        //  initial();
-         return true;
-    })
-    .catch((err) => console.error(err));
+    return new Promise(resolve => {
+        department.findAll().then(async (departmentData) => {
+                await format(departmentData);
+                resolve(true);
+            })
+            .catch((err) => console.error(err));
+    });
 }
 
 module.exports = allDepartment;

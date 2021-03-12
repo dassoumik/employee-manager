@@ -5,6 +5,8 @@ const allRole = require('./allRole');
 const addEmployee = require('./addEmployee');
 const addDepartment = require('./addDepartment');
 const addRole = require('./addRole');
+const updateEmpRole = require('./updateEmpRole');
+
 
 
 
@@ -62,24 +64,33 @@ function initial() {
                     status();
                     break;
                 case ("View All Employees"):
-                    try {
-                        allEmployee();
-                    } catch {
-                        (err) => console.error(err)
-                    }
-                    initial();
+                    status = async () => {
+                        const result = await allEmployee();
+                        initial();
+                    };
+                    status();
                     break;
                 case ("View All Departments"):
-                    allDepartment();
-                    initial();
+                    status = async () => {
+                        const result = await allDepartment();
+                        initial();
+                    };
+                    status();                    
                     break;
                 case ("View All Roles"):
-                    allRole();
-                    initial();
+                    status = async () => {
+                        const result = await allRole();
+                        initial();
+                    };
+                    status(); 
                     break;
-                    //     //     case ("Update Employee Role"):
-                    //     //         status = updateEmpRole();
-                    //     //         break;
+                case ("Update Employee Role"):
+                    status = async () => {
+                        const result = await updateEmpRole();
+                        initial();
+                    };
+                    status();
+                    break;
                     //     //     case ("Exit"):
                     //     //         mDB.end();
                     //     //         status = true;

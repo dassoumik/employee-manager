@@ -4,12 +4,13 @@ const inquirer = require('inquirer');
 const employee = require('../../models/Employee');
 
 const allEmployee = async () => {
-    employee.findAll().then((employeeData) => {
-         format(employeeData);
-        //  initial();
-         return true;
-    })
-    .catch((err) => console.error(err));
+    return new Promise(resolve => {
+        employee.findAll().then(async (employeeData) => {
+                await format(employeeData);
+                resolve(true);
+            })
+            .catch((err) => console.error(err));
+    });
 }
 
 module.exports = allEmployee;
