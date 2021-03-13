@@ -1,6 +1,6 @@
 const inquirer = require('inquirer');
 const department = require('../../models/Department');
-const Role = require('../../models/Role');
+const role = require('../../models/Role');
 
 const deleteDepartment = () => {
     return new Promise(resolve => {
@@ -26,7 +26,7 @@ const deleteDepartment = () => {
                     }
                 }, ])
                 .then((departmentData) => {
-                    Role.update({
+                    role.update({
                         dept_id: null
                     }, {
                         where: {

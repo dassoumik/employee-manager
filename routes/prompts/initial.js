@@ -10,13 +10,14 @@ const viewByManager = require('./viewByManager');
 const deleteEmployee = require('./deleteEmployee');
 const deleteRole = require('./deleteRole');
 const deleteDepartment = require('./deleteDepartment');
+const deptBudget = require('./deptBudget');
+const updEmpManager = require('./updEmpManager');
+
+
 
 const {
     sequelize
 } = require('../../config/connection');
-
-
-
 
 let status;
 
@@ -34,6 +35,7 @@ function initial() {
                 "View All Departments",
                 "View All Roles",
                 "Update Employee Role",
+                "Update Employee Manager",
                 "View Employees by Manager",
                 "Delete Employee",
                 "Delete Role",
@@ -90,6 +92,13 @@ function initial() {
                 case ("Update Employee Role"):
                     status = async () => {
                         const result = await updateEmpRole();
+                        initial();
+                    };
+                    status();
+                    break;
+                case ("Update Employee Manager"):
+                    status = async () => {
+                        const result = await updEmpManager();
                         initial();
                     };
                     status();
