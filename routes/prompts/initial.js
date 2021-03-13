@@ -7,6 +7,8 @@ const addDepartment = require('./addDepartment');
 const addRole = require('./addRole');
 const updateEmpRole = require('./updateEmpRole');
 const viewByManager = require('./viewByManager');
+const deleteEmployee = require('./deleteEmployee');
+
 
 const {
     sequelize
@@ -32,6 +34,7 @@ function initial() {
                 "View All Roles",
                 "Update Employee Role",
                 "View Employees by Manager",
+                "Delete Employee",
                 "Exit"
             ],
             message: 'What would you like to do?',
@@ -91,6 +94,13 @@ function initial() {
                 case ("View Employees by Manager"):
                     status = async () => {
                         const result = await viewByManager();
+                        initial();
+                    };
+                    status();
+                    break;
+                case ("Delete Employee"):
+                    status = async () => {
+                        const result = await deleteEmployee();
                         initial();
                     };
                     status();
