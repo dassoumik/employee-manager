@@ -8,6 +8,8 @@ const addRole = require('./addRole');
 const updateEmpRole = require('./updateEmpRole');
 const viewByManager = require('./viewByManager');
 const deleteEmployee = require('./deleteEmployee');
+const deleteRole = require('./deleteRole');
+
 
 
 const {
@@ -35,6 +37,7 @@ function initial() {
                 "Update Employee Role",
                 "View Employees by Manager",
                 "Delete Employee",
+                "Delete Role",
                 "Exit"
             ],
             message: 'What would you like to do?',
@@ -101,6 +104,13 @@ function initial() {
                 case ("Delete Employee"):
                     status = async () => {
                         const result = await deleteEmployee();
+                        initial();
+                    };
+                    status();
+                    break;
+                case ("Delete Role"):
+                    status = async () => {
+                        const result = await deleteRole();
                         initial();
                     };
                     status();

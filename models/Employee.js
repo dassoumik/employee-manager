@@ -19,9 +19,11 @@ Employee.init(
     },
     role_id: {
       type: DataTypes.INTEGER,
+      foreignKey: true,
     },
     manager_id: {
       type: DataTypes.INTEGER,
+      foreignKey: true,
     },
   },
   {
