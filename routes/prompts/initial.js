@@ -26,7 +26,7 @@ function initial() {
     inquirer
         .prompt([{
             name: 'choice',
-            type: 'rawlist',
+            type: 'list',
             choices: [
                 "Add Employee",
                 "Add Department",
