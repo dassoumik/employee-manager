@@ -54,7 +54,7 @@ const updateEmpRole = () => {
                     }, )
 
                     .then((employeeUpdatedData) => {
-                        console.log("Employee Role Updated");
+                        console.log("Employee Manager Updated");
                         resolve(true);
                     })
                     .catch((err) => console.error(err));
