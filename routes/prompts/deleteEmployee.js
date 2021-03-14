@@ -26,29 +26,18 @@ const deleteEmployee = () => {
                 }
             }, ])
             .then((employeeData) => {
-                employee.update({
-                        manager_id: null
-                    }, {
+                employee.destroy({
                         where: {
-                            manager_id: [JSON.parse(employeeData.employee_id)]
+                            employee_id: [JSON.parse(employeeData.employee_id)],
                         }
-                    }, ).then(empUpdManagerData => {
-                        console.log(empUpdManagerData);
-
-                        employee.destroy({
-                                where: {
-                                    employee_id: [JSON.parse(employeeData.employee_id)],
-                                }
-                            }, )
-                            .then((employeeCreatedData) => {
-                                console.log("Employee Deleted");
-                                resolve(true);
-                            })
+                    }, )
+                    .then((employeeCreatedData) => {
+                        console.log("Employee Deleted");
+                        resolve(true);
                     })
-                    .catch((err) => console.error(err));
-                return true;
             })
-            .catch((err) => console.error(err))
+            .catch((err) => console.error(err));
+        return true;
     });
 };
 

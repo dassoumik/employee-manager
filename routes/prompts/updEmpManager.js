@@ -40,7 +40,6 @@ const updateEmpRole = () => {
                                 })
                                 resolve(choiceArray);
                             })
-                            // choiceArray.push(null);
                         })
                     }
                 },

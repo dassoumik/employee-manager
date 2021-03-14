@@ -19,11 +19,19 @@ Employee.init(
     },
     role_id: {
       type: DataTypes.INTEGER,
-      foreignKey: true,
+      // foreignKey: true,
+      references: {
+        model: 'role',
+        key: 'role_id',
+      },
     },
     manager_id: {
       type: DataTypes.INTEGER,
-      foreignKey: true,
+      // foreignKey: true,
+      references: {
+        model: 'employee',
+        key: 'employee_id',
+      },
     },
   },
   {

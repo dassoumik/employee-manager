@@ -1,19 +1,17 @@
-const {sequelize, connected} = require('./config/connection');
+const {
+  sequelize,
+  connected
+} = require('./config/connection');
 const initial = require('./routes/prompts/initial');
 
 function start() {
-    initial();
-    return false;
+  initial();
+  return false;
 };
 try {
-if (connected) {
-  start();
+  if (connected) {
+    start();
+  }
+} catch (error) {
+  console.error('Unable to connect to the database:', error);
 }
-} catch (error)
-{
-    console.error('Unable to connect to the database:', error);
-}
-
-
-
-

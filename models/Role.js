@@ -19,7 +19,11 @@ Role.init(
     },
     dept_id: {
       type: DataTypes.INTEGER,
-      foreignkey: true,
+      // foreignkey: true,
+      references: {
+        model: 'role',
+        key: 'role_id',
+      },
     },
   },
   {

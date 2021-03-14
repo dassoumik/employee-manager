@@ -26,24 +26,17 @@ const deleteDepartment = () => {
                     }
                 }, ])
                 .then((departmentData) => {
-                    role.update({
-                        dept_id: null
-                    }, {
-                        where: {
-                            dept_id: [JSON.parse(departmentData.department_id)]
-                        }
-                    }).then(updRoleData => {
-                        department.destroy({
-                                where: {
-                                    dept_id: [JSON.parse(departmentData.department_id)],
-                                }
-                            }, )
-                            .then((departmentCreatedData) => {
-                                console.log("Department Deleted");
-                                resolve(true);
-                            })
-                    })
+                    department.destroy({
+                            where: {
+                                dept_id: [JSON.parse(departmentData.department_id)],
+                            }
+                        }, )
+                        .then((departmentCreatedData) => {
+                            console.log("Department Deleted");
+                            resolve(true);
+                        })
                 })
+                // })
                 .catch((err) => console.error(err));
             return true;
         })

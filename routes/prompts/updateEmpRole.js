@@ -2,7 +2,6 @@ const inquirer = require('inquirer');
 const employee = require('../../models/Employee');
 const role = require('../../models/Role');
 
-
 const updateEmpRole = () => {
     return new Promise(resolve => {
         inquirer
@@ -13,28 +12,35 @@ const updateEmpRole = () => {
                 },
                 {
                     name: 'role',
-                    type: 'list',
+                    type: 'rawlist',
                     message: "Enter Employee New Role: ",
                     choices() {
                         const choiceArray = [];
-                        return new Promise((resolve, reject) => {
-                            role.findAll().then((res) => {
-                                    res.forEach((item) => {
-                                        choiceArray.push(`{"role_id": ${item.role_id}, "title": "${(item.title)}"}`);
+
+                        return new Promise(resolve => {
+                                role.findAll().then(async (result) => {
+                                    result.forEach((item) => {
+                                        const choiceItem = {};
+                                        choiceItem.name = item.title;
+                                        choiceItem.value = item.role_id;
+                                        choiceArray.push(choiceItem);
                                     })
-                                    return resolve(choiceArray)
+                                    resolve(choiceArray)
                                 })
-                                .catch((err) => console.error(err));
-                        })
-                    }
-                }
+
+                            })
+                            .catch((err) => console.error(err));
+                    },
+                },
             ])
             .then((updateRoleData) => {
                 employee.update({
-                    role_id: JSON.parse(updateRoleData.role).role_id,
-                        },
-                        {where: {employee_id: updateRoleData.employee_id}},
-                    )
+                        role_id: JSON.parse(updateRoleData.role),
+                    }, {
+                        where: {
+                            employee_id: updateRoleData.employee_id
+                        }
+                    }, )
 
                     .then((employeeUpdatedData) => {
                         console.log("Employee Role Updated");
