@@ -40,8 +40,8 @@ the project in the terminal.
   ## Usage <br>
   The app can be used by small business owners
 to maintain and track employee data.
-Link to demo video is below, here you will get a complete demonstartion on how to use the app
-[youtube - demo video](https://www.youtube.com/watch?v=z5Xb3pYWmVo)
+Link to demo video is below, here you will get a complete demonstartion on how to use the app <br>
+ - [youtube - demo video](https://www.youtube.com/watch?v=z5Xb3pYWmVo)
 
  <br>
   <br>
