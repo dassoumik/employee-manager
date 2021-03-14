@@ -8,7 +8,7 @@
    3. [Usage](#Usage)
    4. [License](#License)
    5. [Contributing](#Contributing)
-   6. [Tests](#Tests)
+   6. [Learnings](#Learnings)
    7. [Questions](#Questions)  
    <br>
 
@@ -40,6 +40,8 @@ the project in the terminal.
   ## Usage <br>
   The app can be used by small business owners
 to maintain and track employee data.
+Link to demo video is below, here you will get a complete demonstartion on how to use the app
+[youtube - demo video](https://www.youtube.com/watch?v=z5Xb3pYWmVo)
 
  <br>
   <br>
@@ -58,7 +60,7 @@ to maintain and track employee data.
  - Create a new Pull Request <br>
   <br>
 
-  ## Tests <br>
+  ## Learnings <br>
   Learnt how to integrate database with a node 
 application. Learnt the sequlize option in npm
 packages.  <br>
